@@ -6,18 +6,42 @@
   <meta name="description" content="Emoji World presents vibrant emoji cards and mood icons for messages, stories, and social sharing.">
   <title>Emoji World</title>
   <link rel="stylesheet" href="Web.css">
+  <style>
+    /* Nav improvements */
+    .site-nav{ display:flex; gap:1rem; align-items:center; }
+    .site-nav a{ text-decoration:none; color:var(--text, #222); padding:0.5rem 0.6rem; border-radius:6px; transition:background .18s,color .18s,transform .18s; }
+    .site-nav a:hover{ background:rgba(0,0,0,0.06); color:var(--brand,#1a73e8); transform:translateY(-2px); }
+
+    /* Card base + hover lighting/dark effect */
+    .card{ background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,250,250,0.95)); border-radius:14px; padding:1.2rem; box-shadow:0 6px 18px rgba(20,20,30,0.06); transition: transform .22s cubic-bezier(.2,.9,.2,1), box-shadow .22s, background .22s; will-change:transform,box-shadow;
+      display:flex; flex-direction:column; gap:.6rem; align-items:flex-start; }
+    .card img{ width:72px; height:72px; object-fit:cover; border-radius:12px; }
+    .card h3{ margin:.2rem 0 .1rem; }
+    .card p{ margin:0 0 .6rem; color:rgba(0,0,0,0.65); }
+
+    /* Hover effect - subtle lift + rim light */
+    .card:hover{ transform:translateY(-8px) scale(1.02); box-shadow:0 18px 40px rgba(18,24,40,0.18), 0 2px 8px rgba(0,0,0,0.06); background:linear-gradient(180deg, rgba(255,255,255,1), rgba(244,246,255,0.98)); }
+
+    /* Dark-mode aware hover - create soft rim light for colored accents */
+    .card.accent-sun:hover{ box-shadow:0 20px 50px rgba(255,180,0,0.08), 0 2px 8px rgba(0,0,0,0.08); }
+    .card.accent-fuchsia:hover{ box-shadow:0 20px 50px rgba(220,50,160,0.08), 0 2px 8px rgba(0,0,0,0.08); }
+
+    /* Make buttons consistent */
+    .card button{ background:transparent; border:1px solid rgba(0,0,0,0.08); padding:.45rem .7rem; border-radius:8px; cursor:pointer; transition:background .14s,transform .14s; }
+    .card button:hover{ background:rgba(0,0,0,0.06); transform:translateY(-2px); }
+  </style>
 </head>
 <body>
   <header class="site-header">
-    <div class="brand-block">
+      <div class="brand-block">
       <img class="logo" src="download.png" alt="Emoji World logo">
       <div>
         <p class="eyebrow">Emoji World</p>
-        <h1 class="brand-title">Bright emoji cards for every mood</h1>
+        <h1 class="brand-title">Emoji World — Bright emoji cards for every mood</h1>
       </div>
     </div>
 
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Main navigation">
       <a href="Web.html">Home</a>
       <a href="services.html">Services</a>
       <a href="blog.html">Blog</a>
